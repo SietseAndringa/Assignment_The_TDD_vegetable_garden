@@ -1,4 +1,17 @@
-// make crops
+// Crop data: 
+
+const corn = {
+    name: "corn",
+    yield: 3,
+};
+const potatoes = {
+    name: "potatoes",
+    yield: 5,
+};
+const crops = [
+    { crop: corn, numCrops: 5 },
+    { crop: potatoes, numCrops: 2 },
+];
 
 // make functions for:
 
@@ -15,6 +28,16 @@ const getYieldForCrop = function (crop) {
 }
 
 // getTotalYield 
+
+const getTotalYield = function ({ crops }) {
+    let sum = 0;
+    crops.forEach(item => {
+        sum = sum + item.crop.yield * item.numCrops;
+    });
+    console.log(sum);
+    return sum;
+}
+
 // getCostsForCrop
 // getRevenueForCrop
 // getProfitForCrop
@@ -22,5 +45,6 @@ const getYieldForCrop = function (crop) {
 
 module.exports = {
     getYieldForPlant,
-    getYieldForCrop
+    getYieldForCrop,
+    getTotalYield
 }

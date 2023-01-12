@@ -1,6 +1,7 @@
 const {
     getYieldForPlant,
-    getYieldForCrop
+    getYieldForCrop,
+    getTotalYield
 } = require("./Vegetable_Garden");
 
 // make tests for:
@@ -25,7 +26,7 @@ describe("getYieldForPlant", () => {
     });
 });
 
-// getYieldForCrop
+// ---getYieldForCrop---
 
 describe("getYieldForCrop", () => {
     test("Get yield for crop, simple", () => {
@@ -52,8 +53,36 @@ describe("getYieldForCrop", () => {
         expect(getYieldForCrop(potatoesCropCount)).toBe(50);
     });
 });
-// getTotalYield
-// getCostsForCrop
-// getRevenueForCrop
-// getProfitForCrop
-// getTotalProfit
+
+// ---getTotalYield---
+
+describe("getTotalYield", () => {
+    test("Calculate total yield with multiple crops", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+        };
+        const potatoes = {
+            name: "potatoes",
+            yield: 5,
+        };
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: potatoes, numCrops: 2 },
+        ];
+        expect(getTotalYield({ crops })).toBe(25);
+    });
+
+    test("Calculate total yield with 0 amount", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+        };
+        const crops = [{ crop: corn, numCrops: 0 }];
+        expect(getTotalYield({ crops })).toBe(0);
+    });
+});
+// ---getCostsForCrop---
+// ---getRevenueForCrop---
+// ---getProfitForCrop---
+// ---getTotalProfit---
