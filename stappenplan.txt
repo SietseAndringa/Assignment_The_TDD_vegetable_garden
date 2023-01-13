@@ -1,6 +1,6 @@
-jest install test env. - done -
-create repo
-init git
+jest install test env. -done-
+create repo -done- 
+init git -done- 
 
 1. write one or more tests for a piece of functionality.
 2. run the new tests and check that they fail (red).
