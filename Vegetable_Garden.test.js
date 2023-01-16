@@ -4,7 +4,8 @@ const {
     getTotalYield,
     getCostsForCrop,
     getRevenueForCrop,
-    getProfitForCrop
+    getProfitForCrop,
+    getTotalProfit
 } = require("./Vegetable_Garden");
 
 
@@ -149,12 +150,6 @@ describe("getProfitForCrop", () => {
 
 describe("getTotalProfit", () => {
     test("calculate the profit for multiple crops (without environmental factors)", () => {
-
-        const input = {
-            crop: corn,
-            numCrops: 15,
-        };
-
-        expect(getTotalProfit(input)).toBe(350);
+        expect(getTotalProfit({ crops })).toBe(350);
     });
 });
